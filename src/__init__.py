@@ -1,1 +1,92 @@
-print('Atelier 6')
+import random
+import matplotlib.pyplot as plt
+
+plt.figure()
+plt.plot([1,2,3,4])
+plt.ylabel('Label 1')
+plt.show()
+plt.savefig('fig-1.png')
+
+plt.figure()
+plt.title('Danger de la vitesse')
+plt.plot([50,100,150,200], [1,2,3,4])
+plt.xlabel('Vitesse')
+plt.ylabel('Temps')
+plt.show()
+plt.savefig('fig-2.png')
+
+plt.figure()
+plt.plot([50,100,150,200], [1,2,3,4])
+plt.xlabel('Vitesse')
+plt.ylabel('Temps')
+plt.axis([80, 180, 1, 10])
+plt.show()
+plt.savefig('fig-3.png')
+
+plt.figure()
+plt.plot([50,100,150,200], [1,2,3,4])
+plt.plot([50,100,150,200], [2,3,7,10])
+plt.plot([50,100,150,200], [2,7,9,10])
+plt.savefig('fig-4.png')
+
+plt.figure()
+plt.plot([50,100,150,200], [1,2,3,4], 'r--', [50,100,150,200], [2,3,7,10], 'bs', [50,100,150,200], [2,7,9,10], 'g^')
+plt.savefig('fig-5.png')
+
+plt.figure()
+plt.plot([50,100,150,200], [1,2,3,4], 'r--', linewidth=5)
+plt.plot([50,100,150,200], [2,3,7,10], 'b', linewidth=3)
+plt.plot([50,100,150,200], [2,7,9,10], 'g', linewidth=10)
+plt.savefig('fig-6.png')
+
+plt.figure()
+plt.subplot(2,1,1)
+plt.plot([50,100,150,200], [1,2,3,4], 'r--', linewidth=5)
+plt.plot([50,100,150,200], [2,3,7,10], 'b', linewidth=3)
+plt.plot([50,100,150,200], [2,7,9,10], 'g', linewidth=10)
+plt.xlabel('Vitesse')
+plt.ylabel('Temps')
+plt.axis([80, 180, 1, 10])
+plt.subplot(2,1,2)
+plt.plot([50,100,150,200], [1,2,3,15], 'r--', linewidth=5)
+plt.plot([50,100,150,200], [2,3,7,10], 'b', linewidth=3)
+plt.plot([50,100,150,200], [2,7,9,10], 'g', linewidth=10)
+plt.xlabel('Vitesse')
+plt.ylabel('Temps')
+plt.axis([80, 180, 1, 10])
+plt.show()
+plt.savefig('fig-7.png')
+
+plt.figure()
+plt.grid(True)
+plt.plot([50,100,150,200], [2,3,7,10], 'b', linewidth=0.8, marker='*')
+plt.plot([50,100,150,200], [2,7,9,10], 'g', linewidth=0.8, marker='+')
+plt.text(150, 6.5, r'Danger')
+plt.savefig('fig-8.png')
+
+plt.figure()
+plt.grid(True)
+plt.plot([50,100,150,200], [2,3,7,10], "b", linewidth=0.8, marker="*", label="Trajet 1")
+plt.plot([50,100,150,200], [2,7,9,10], "g", linewidth=0.8, marker="+", label="Trajet 2")
+plt.axis([80, 180, 1, 10])
+plt.xlabel('Vitesse')
+plt.ylabel('Temps')
+plt.legend() 
+plt.show()
+plt.savefig('fig-9.png')
+
+plt.figure()
+x = [random.randint(0,100) for i in range(20)]
+num_bins = 5
+n, bins, patches = plt.hist(x, num_bins, facecolor='b', alpha=0.5)
+plt.show()
+plt.savefig('fig-10.png')
+
+plt.figure()
+name = ['-18', '18-25', '25-50', '50+']
+data = [5000, 26000, 21400, 12000]
+explode=(0, 0.15, 0, 0)
+plt.pie(data, explode=explode, labels=name, autopct='%1.1f%%', startangle=90, shadow=True)
+plt.axis('equal')
+plt.show()
+plt.savefig('fig-11.png')
